@@ -10,10 +10,10 @@ c = b
 print(c)
 
 name = input("Имя?")
-print(name)
+print(f'Ваше имя: {name}')
 
 age = int(input("Возраст?"))
-print(age)
+print(f'Ваш возраст: {age}')
 
 """
 2. Пользователь вводит время в секундах. Переведите время в часы, минуты, секунды и выведите в формате чч:мм:сс. 
@@ -23,15 +23,15 @@ time_input = int(input("Введите время в секундах: "))
 time_hrs = time_input // 3600
 time_mins = (time_input % 3600) // 60
 time_secs = (time_input % 3600) % 60
-print(f"Time is: {time_hrs}:{time_mins}:{time_secs}")
+print(f"Время: {time_hrs}:{time_mins}:{time_secs}")
 
 """
 3. Узнайте у пользователя число n. Найдите сумму чисел n + nn + nnn. Например, пользователь ввёл число 3. 
 Считаем 3 + 33 + 333 = 369.
 """
 n = input("Введите число: ")
-sum_n = int(n) + int(n + n) + int(n +n + n)
-print(sum_n)
+sum_n = int(n) + int(n * 2) + int(n * 3)
+print(f'{n} + {n * 2} + {n * 3} = {sum_n}')
 
 """
 4. Пользователь вводит целое положительное число. Найдите самую большую цифру в числе. Для решения используйте цикл 
@@ -44,7 +44,7 @@ while number != 0:
     if digit > max_number:
         max_number = digit
     number = number // 10
-print(max_number)
+print(f"Самая большая цифра равна {max_number}")
 
 """
 5. Запросите у пользователя значения выручки и издержек фирмы. Определите, с каким финансовым результатом работает 
@@ -57,16 +57,17 @@ revenue = int(input("Введите значение выручки: "))
 costs = int(input("Введите значение издержек: "))
 if revenue < costs:
     print('Убыток')
-if revenue > costs:
+elif revenue > costs:
     print('Прибыль')
     profit = revenue - costs
     viability = (profit / revenue) * 100
-    viability = round(viability,2)
-    print(f'Рентабельность: {viability}%')
+    viability = round(viability, 2)
+    print(f'Рентабельность равна {viability}%')
     employees = int(input('Введите количество сотрудников '))
     empl_profit = profit / employees
     print(f'Прибыль в расчете на сотрудника равна {empl_profit}')
-
+else:
+    print('Выручка равна издержкам')
 """
 7. Спортсмен занимается ежедневными пробежками. В первый день его результат составил a километров. Каждый день спортсмен
  увеличивал результат на 10% относительно предыдущего. Требуется определить номер дня, на который результат спортсмена 
@@ -80,4 +81,3 @@ while result_1 < result_final:
     result_1 = result_1 + result_1 * 0.1
     day = day + 1
 print(f'Вы достигнете цели через {day} дней')
-
